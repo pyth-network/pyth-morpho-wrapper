@@ -3,9 +3,7 @@ pragma solidity ^0.8.0;
 
 import {IPyth} from "@pythnetwork/pyth-sdk-solidity/IPyth.sol";
 import {PythStructs} from "@pythnetwork/pyth-sdk-solidity/PythStructs.sol";
-
 import {PythErrorsLib} from "./PythErrorsLib.sol";
-
 /// @title PythFeedLib
 /// @author Pyth Data Association
 /// @notice Library exposing functions to interact with a Pyth feed.
@@ -17,6 +15,7 @@ library PythFeedLib {
         if (priceId == bytes32(0)) return 1;
 
         PythStructs.Price memory price = pyth.getPriceNoOlderThan(priceId, maxAge);
+        require(int256(price.price) >= 0, PythErrorsLib.NEGATIVE_ANSWER);
         return uint256(int256(price.price));
     }
     /// @dev Returns the number of decimals of a `priceId`.

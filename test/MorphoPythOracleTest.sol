@@ -18,7 +18,7 @@ contract MorphoPythOracleTest is Test {
             pythWbtcUsdFeed,
             30000 * 1e8, // Price of 30,000 USD
             0, // Confidence interval
-            -8, // Expo (-8 means price is multiplied by 10^8)
+            -8, // Expo (-8 means price is multiplied by 10^-8)
             30000 * 1e8, // EMA price
             0, // EMA Confidence interval
             uint64(block.timestamp),
@@ -29,7 +29,7 @@ contract MorphoPythOracleTest is Test {
             pythUsdtUsdFeed,
             1 * 1e8, // Price of 1 USD
             0, // Confidence interval
-            -6, // Expo (-6 means price is multiplied by 10^6)
+            -6, // Expo (-6 means price is multiplied by 10^-6)
             1 * 1e8, // EMA price
             0, // EMA Confidence interval
             uint64(block.timestamp),

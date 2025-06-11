@@ -1,7 +1,7 @@
 {
-  "name": "morpho-blue-oracles",
+  "name": "pyth-morpho-wrapper",
   "version": "1.0.0",
-  "description": "Morpho Blue Oracles are contracts that can be used as oracles for markets on [Morpho Blue](https://github.com/morpho-org/morpho-blue). The oracles implement the `IOracle` interface defined in [`IOracle.sol`](https://github.com/morpho-org/morpho-blue/blob/main/src/interfaces/IOracle.sol#L9): they return the price of 1 asset of collateral token quoted in 1 asset of loan token.",
+  "description": "Pyth Morpho Wrapper is a wrapper that use the Pyth oracle to provide price data for markets on [Morpho Blue](https://github.com/morpho-org/morpho-blue).",
   "main": "index.js",
   "directories": {
     "lib": "lib",

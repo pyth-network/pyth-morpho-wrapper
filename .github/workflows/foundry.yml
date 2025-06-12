@@ -24,6 +24,10 @@ jobs:
         with:
           version: nightly
 
+      - name: Install Pyth SDK
+        run: |
+          npm install @pythnetwork/pyth-sdk-solidity@4.0.0
+
       - name: Run Forge build
         run: |
           forge --version

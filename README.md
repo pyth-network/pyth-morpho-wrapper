@@ -37,6 +37,7 @@ To do so, call the `createMorphoPythOracle` function with the following paramete
 E.g: for a MetaMorpho WETH vault, as `baseVault`, the `baseTokenDecimals` is 18 as WETH has 18 decimals.
 
 ### Addresses
+
 TODO:
 The address on Ethereum of this factory is [](https://etherscan.io/address/#code).
 
@@ -72,7 +73,3 @@ npm install @pythnetwork/pyth-sdk-solidity
 ```
 
 Run test: `forge test`
-
-## Audits
-
-All audits are stored in the [audits](./audits/)' folder.

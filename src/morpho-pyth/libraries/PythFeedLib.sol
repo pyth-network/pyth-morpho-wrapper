@@ -7,6 +7,7 @@ import {PythErrorsLib} from "./PythErrorsLib.sol";
 /// @title PythFeedLib
 /// @author Pyth Data Association
 /// @notice Library exposing functions to interact with a Pyth feed.
+
 library PythFeedLib {
     /// @dev Returns the price of a `priceId`.
     /// @dev When `priceId` is the address zero, returns 1.
@@ -20,6 +21,7 @@ library PythFeedLib {
     }
     /// @dev Returns the number of decimals of a `priceId`.
     /// @dev When `priceId` is the address zero, returns 0.
+
     function getDecimals(IPyth pyth, bytes32 priceId) internal view returns (uint256) {
         if (priceId == bytes32(0)) return 0;
 

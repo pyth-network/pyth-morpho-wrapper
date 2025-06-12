@@ -1,4 +1,5 @@
 pragma solidity ^0.8.0;
+
 import "../lib/forge-std/src/Test.sol";
 import "@pythnetwork/pyth-sdk-solidity/MockPyth.sol";
 import "../src/morpho-pyth/MorphoPythOracle.sol";
@@ -77,14 +78,14 @@ contract MorphoPythOracleTest is Test {
         );
         assertEq(
             oracle.price(),
-            ((uint256(int256(mockPyth.getPriceUnsafe(pythWbtcUsdFeed).price))) *
-                10 **
-                    (36 +
-                        pythUsdtUsdTokenDecimals +
-                        uint256(-1 * int256(-6)) -
-                        pythWbtcUsdTokenDecimals -
-                        uint256(-1 * int256(-8)))) /
-                uint256(int256(mockPyth.getPriceUnsafe(pythUsdtUsdFeed).price))
+            (
+                (uint256(int256(mockPyth.getPriceUnsafe(pythWbtcUsdFeed).price)))
+                    * 10
+                        ** (
+                            36 + pythUsdtUsdTokenDecimals + uint256(-1 * int256(-6)) - pythWbtcUsdTokenDecimals
+                                - uint256(-1 * int256(-8))
+                        )
+            ) / uint256(int256(mockPyth.getPriceUnsafe(pythUsdtUsdFeed).price))
         );
     }
 }

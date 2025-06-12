@@ -29,15 +29,19 @@ interface IMorphoPythOracleFactory {
     /// @param baseVaultConversionSample The sample amount of base vault shares used to convert to underlying.
     /// Pass 1 if the base asset is not a vault. Should be chosen such that converting `baseVaultConversionSample` to
     /// assets has enough precision.
-    /// @param baseFeed1 First base feed. Pass bytes32(0) if the price = 1. We recommend using stablecoin feeds instead of passing 1.
-    /// @param baseFeed2 Second base feed. Pass bytes32(0) if the price = 1. We recommend using stablecoin feeds instead of passing 1.
+    /// @param baseFeed1 First base feed. Pass bytes32(0) if the price = 1. We recommend using stablecoin feeds instead
+    /// of passing 1.
+    /// @param baseFeed2 Second base feed. Pass bytes32(0) if the price = 1. We recommend using stablecoin feeds instead
+    /// of passing 1.
     /// @param baseTokenDecimals Base token decimals.
     /// @param quoteVault Quote vault. Pass address zero to omit this parameter.
     /// @param quoteVaultConversionSample The sample amount of quote vault shares used to convert to underlying.
     /// Pass 1 if the quote asset is not a vault. Should be chosen such that converting `quoteVaultConversionSample` to
     /// assets has enough precision.
-    /// @param quoteFeed1 First quote feed. Pass bytes32(0) if the price = 1. We recommend using stablecoin feeds instead of passing 1.
-    /// @param quoteFeed2 Second quote feed. Pass bytes32(0) if the price = 1. We recommend using stablecoin feeds instead of passing 1.
+    /// @param quoteFeed1 First quote feed. Pass bytes32(0) if the price = 1. We recommend using stablecoin feeds
+    /// instead of passing 1.
+    /// @param quoteFeed2 Second quote feed. Pass bytes32(0) if the price = 1. We recommend using stablecoin feeds
+    /// instead of passing 1.
     /// @param quoteTokenDecimals Quote token decimals.
     /// @param priceFeedMaxAge The maximum age in secondsfor the oracles prices to be considered valid.
     /// @param salt The salt to use for the CREATE2.

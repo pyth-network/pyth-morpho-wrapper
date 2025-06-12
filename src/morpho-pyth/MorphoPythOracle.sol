@@ -15,7 +15,9 @@ import "@pythnetwork/pyth-sdk-solidity/IPyth.sol";
 /// @notice Morpho Blue oracle using Pyth Price Feeds.
 contract MorphoPythOracle is IMorphoPythOracle {
     using Math for uint256;
+
     IPyth public immutable pyth;
+
     using VaultLib for IERC4626;
 
     /* IMMUTABLES */
@@ -73,18 +75,11 @@ contract MorphoPythOracle is IMorphoPythOracle {
             PythErrorsLib.VAULT_CONVERSION_SAMPLE_IS_NOT_ONE
         );
         require(
-            address(quoteVault) != address(0) ||
-                quoteVaultConversionSample == 1,
+            address(quoteVault) != address(0) || quoteVaultConversionSample == 1,
             PythErrorsLib.VAULT_CONVERSION_SAMPLE_IS_NOT_ONE
         );
-        require(
-            baseVaultConversionSample != 0,
-            PythErrorsLib.VAULT_CONVERSION_SAMPLE_IS_ZERO
-        );
-        require(
-            quoteVaultConversionSample != 0,
-            PythErrorsLib.VAULT_CONVERSION_SAMPLE_IS_ZERO
-        );
+        require(baseVaultConversionSample != 0, PythErrorsLib.VAULT_CONVERSION_SAMPLE_IS_ZERO);
+        require(quoteVaultConversionSample != 0, PythErrorsLib.VAULT_CONVERSION_SAMPLE_IS_ZERO);
         BASE_VAULT = baseVault;
         BASE_VAULT_CONVERSION_SAMPLE = baseVaultConversionSample;
         QUOTE_VAULT = quoteVault;
@@ -95,17 +90,14 @@ contract MorphoPythOracle is IMorphoPythOracle {
         QUOTE_FEED_2 = quoteFeed2;
 
         pyth = IPyth(pyth_);
-        SCALE_FACTOR =
-            (10 **
-                (36 +
-                    quoteTokenDecimals +
-                    PythFeedLib.getDecimals(pyth, QUOTE_FEED_1) +
-                    PythFeedLib.getDecimals(pyth, QUOTE_FEED_2) -
-                    baseTokenDecimals -
-                    PythFeedLib.getDecimals(pyth, BASE_FEED_1) -
-                    PythFeedLib.getDecimals(pyth, BASE_FEED_2)) *
-                quoteVaultConversionSample) /
-            baseVaultConversionSample;
+        SCALE_FACTOR = (
+            10
+                ** (
+                    36 + quoteTokenDecimals + PythFeedLib.getDecimals(pyth, QUOTE_FEED_1)
+                        + PythFeedLib.getDecimals(pyth, QUOTE_FEED_2) - baseTokenDecimals
+                        - PythFeedLib.getDecimals(pyth, BASE_FEED_1) - PythFeedLib.getDecimals(pyth, BASE_FEED_2)
+                ) * quoteVaultConversionSample
+        ) / baseVaultConversionSample;
 
         PRICE_FEED_MAX_AGE = priceFeedMaxAge;
     }
@@ -114,22 +106,13 @@ contract MorphoPythOracle is IMorphoPythOracle {
 
     /// @inheritdoc IOracle
     function price() external view returns (uint256) {
-        return
-            SCALE_FACTOR.mulDiv(
-                BASE_VAULT.getAssets(BASE_VAULT_CONVERSION_SAMPLE) *
-                    PythFeedLib.getPrice(
-                        pyth,
-                        BASE_FEED_1,
-                        PRICE_FEED_MAX_AGE
-                    ) *
-                    PythFeedLib.getPrice(pyth, BASE_FEED_2, PRICE_FEED_MAX_AGE),
-                QUOTE_VAULT.getAssets(QUOTE_VAULT_CONVERSION_SAMPLE) *
-                    PythFeedLib.getPrice(
-                        pyth,
-                        QUOTE_FEED_1,
-                        PRICE_FEED_MAX_AGE
-                    ) *
-                    PythFeedLib.getPrice(pyth, QUOTE_FEED_2, PRICE_FEED_MAX_AGE)
-            );
+        return SCALE_FACTOR.mulDiv(
+            BASE_VAULT.getAssets(BASE_VAULT_CONVERSION_SAMPLE)
+                * PythFeedLib.getPrice(pyth, BASE_FEED_1, PRICE_FEED_MAX_AGE)
+                * PythFeedLib.getPrice(pyth, BASE_FEED_2, PRICE_FEED_MAX_AGE),
+            QUOTE_VAULT.getAssets(QUOTE_VAULT_CONVERSION_SAMPLE)
+                * PythFeedLib.getPrice(pyth, QUOTE_FEED_1, PRICE_FEED_MAX_AGE)
+                * PythFeedLib.getPrice(pyth, QUOTE_FEED_2, PRICE_FEED_MAX_AGE)
+        );
     }
 }

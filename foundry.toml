@@ -7,6 +7,7 @@ optimizer = true
 optimizer_runs = 999999
 bytecode_hash = "none"
 evm_version = "paris"
+solc_version = "0.8.21"
 
 [profile.default.fmt]
 wrap_comments = true

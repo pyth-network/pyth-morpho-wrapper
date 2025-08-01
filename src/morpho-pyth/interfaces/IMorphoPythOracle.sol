@@ -7,9 +7,15 @@ import {IPyth} from "@pythnetwork/pyth-sdk-solidity/IPyth.sol";
 
 /// @title IMorphoPythOracle
 /// @author Pyth Data Association
-/// @notice Interface of MorphoPythOracle.
-/// @dev This interface is used to interact with the MorphoPythOracle contract.
-/// @dev Fetch price feed ids from https://www.pyth.network/developers/price-feed-ids
+/// @notice Interface for MorphoPythOracle - a Morpho Blue compatible oracle using Pyth price feeds
+/// @dev This interface extends IOracle to provide access to oracle configuration parameters.
+///      All configuration is immutable after deployment and should be carefully validated.
+///
+/// @dev Price feed IDs can be found at: https://www.pyth.network/developers/price-feed-ids
+///      Ensure feed IDs correspond to the intended assets before deployment.
+///
+/// @dev This oracle combines Pyth price feeds with optional ERC-4626 vault share pricing.
+///      Users must validate that all components (Pyth contract, feeds, vaults) are trustworthy.
 interface IMorphoPythOracle is IOracle {
     /// @notice Returns the address of the Pyth contract deployed on the chain.
     function pyth() external view returns (IPyth);

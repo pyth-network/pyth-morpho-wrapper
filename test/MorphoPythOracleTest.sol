@@ -94,13 +94,13 @@ contract MorphoPythOracleTest is Test {
         );
     }
 
-    function testPriceFeedAgeValidation() public {        
+    function testPriceFeedAgeValidation() public {
         // This should work - price is current
         uint256 price = oracle.price();
         assertTrue(price > 0);
     }
 
-    function testPriceFeedStalePrice() public {        
+    function testPriceFeedStalePrice() public {
         vm.warp(block.timestamp + oneMinute + 1);
         // This should revert due to stale price
         vm.expectRevert(bytes4(0x19abf40e)); // StalePrice error

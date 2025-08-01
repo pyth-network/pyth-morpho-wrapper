@@ -123,10 +123,10 @@ contract MorphoPythOracleTest is Test {
 
         updateData[1] = mockPyth.createPriceFeedUpdateData(
             pythUsdtUsdFeed,
-            1 * 1e8, // Price of 1 USD
+            1 * 1e6, // Price of 1 USD
             0, // Confidence interval
             -6, // Expo (-6 means price is multiplied by 10^-6)
-            1 * 1e8, // EMA price
+            1 * 1e6, // EMA price
             0, // EMA Confidence interval
             uint64(block.timestamp) + 1,
             uint64(block.timestamp) + 1

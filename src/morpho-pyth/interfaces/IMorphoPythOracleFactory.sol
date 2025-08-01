@@ -43,7 +43,8 @@ interface IMorphoPythOracleFactory {
     /// @param quoteFeed2 Second quote feed. Pass bytes32(0) if the price = 1. We recommend using stablecoin feeds
     /// instead of passing 1.
     /// @param quoteTokenDecimals Quote token decimals.
-    /// @param priceFeedMaxAge The maximum age in secondsfor the oracles prices to be considered valid.
+    /// @param priceFeedMaxAge The maximum age in seconds for the oracles prices to be considered valid. We have only
+    /// one price feed max age for all price feed.
     /// @param salt The salt to use for the CREATE2.
     /// @dev The base asset should be the collateral token and the quote asset the loan token.
     function createMorphoPythOracle(

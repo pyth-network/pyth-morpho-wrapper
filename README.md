@@ -38,8 +38,12 @@ E.g: for a MetaMorpho WETH vault, as `baseVault`, the `baseTokenDecimals` is 18 
 
 ### Addresses
 
-TODO:
-The address on Ethereum of this factory is [](https://etherscan.io/address/#code).
+| Network Name | Address | Explorer Link |
+|--------------|---------|---------------|
+| Ethereum | `0x1ed187354d6bfb983932d9983917b199a7253ab9` | [View on Etherscan](https://etherscan.io/address/0x1ed187354d6bfb983932d9983917b199a7253ab9) |
+| Base Mainnet | `0x0A250c472cb43fb4F476cc6f47da9CA85E071Bbb` | [View on Base Explorer](https://basescan.org/address/0x0A250c472cb43fb4F476cc6f47da9CA85E071Bbb) |
+| Soneium | `0x825c0390f379C631f3Cf11A82a37D20BddF93c07` | [View on Soneium Explorer](https://soneium.blockscout.com/address/0x825c0390f379C631f3Cf11A82a37D20BddF93c07) |
+| HyperEvm | `0xCAC639d17193b6EBfE8Dd23b07A0c0E7Bcf167B8` | [View on HyperEvm Explorer](https://hyperevmscan.io/address/0xCAC639d17193b6EBfE8Dd23b07A0c0E7Bcf167B8) |
 
 ### Examples
 

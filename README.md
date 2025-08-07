@@ -18,7 +18,10 @@ This oracle handles the following cases among others (let's say that our pair is
 
 ## Deploy an Oracle
 
-To deploy a `MorphoPythOracle` on Ethereum, it is highly recommended to use the factory `MorphoPythOracleFactory`.
+To deploy a `MorphoPythOracle` on Ethereum, it is highly recommended to use the factory `MorphoPythOracleFactory`. Please refer to the factory addresses [below](#factory-addresses).
+If don't see the factory address for your chain, you can deploy your own factory by using the [`scripts/MorphoPythOracleFactoryDeploy.s.sol`](scripts/MorphoPythOracleFactoryDeploy.s.sol) script or by creating an issue on this repository.
+If you are deploying, please make sure to update the [README.md](README.md) file with the new factory address by creating a PR.
+
 To do so, call the `createMorphoPythOracle` function with the following parameters:
 
 - `pyth`: The Pyth contract address. This is the address of the Pyth contract deployed on the chain. You can find the address of the Pyth contract for each chain [here](https://docs.pyth.network/price-feeds/contract-addresses/evm).
@@ -36,7 +39,7 @@ To do so, call the `createMorphoPythOracle` function with the following paramete
 **Warning:** If there is an ERC4626-compliant vault for `baseVault` or `quoteVault`, the `baseTokenDecimals` or `quoteTokenDecimals` are still the decimals of the underlying asset of the vault, and not the decimals of the Vault itself.
 E.g: for a MetaMorpho WETH vault, as `baseVault`, the `baseTokenDecimals` is 18 as WETH has 18 decimals.
 
-### Addresses
+### Factory Addresses
 
 | Network Name | Address | Explorer Link |
 |--------------|---------|---------------|
@@ -64,7 +67,6 @@ Below are the arguments to fill for the creation of the WBTC/USDT oracle on Base
 "priceFeedMaxAge": 3600,
 "salt": "<user-defined value used to make the address unique>",
 ```
-
 
 ## Developers
 

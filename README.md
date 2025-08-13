@@ -19,7 +19,9 @@ This oracle handles the following cases among others (let's say that our pair is
 ## Deploy an Oracle
 
 To deploy a `MorphoPythOracle` on Ethereum, it is highly recommended to use the factory `MorphoPythOracleFactory`. Please refer to the factory addresses [below](#factory-addresses).
+
 If don't see the factory address for your chain, you can deploy your own factory by using the [`scripts/MorphoPythOracleFactoryDeploy.s.sol`](scripts/MorphoPythOracleFactoryDeploy.s.sol) script or by creating an issue on this repository.
+
 If you are deploying, please make sure to update the [README.md](README.md) file with the new factory address by creating a PR.
 
 To do so, call the `createMorphoPythOracle` function with the following parameters:

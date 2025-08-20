@@ -49,6 +49,7 @@ E.g: for a MetaMorpho WETH vault, as `baseVault`, the `baseTokenDecimals` is 18 
 | Base Mainnet | `0x0A250c472cb43fb4F476cc6f47da9CA85E071Bbb` | [View on Base Explorer](https://basescan.org/address/0x0A250c472cb43fb4F476cc6f47da9CA85E071Bbb) |
 | Soneium | `0x825c0390f379C631f3Cf11A82a37D20BddF93c07` | [View on Soneium Explorer](https://soneium.blockscout.com/address/0x825c0390f379C631f3Cf11A82a37D20BddF93c07) |
 | HyperEvm | `0xCAC639d17193b6EBfE8Dd23b07A0c0E7Bcf167B8` | [View on HyperEvm Explorer](https://hyperevmscan.io/address/0xCAC639d17193b6EBfE8Dd23b07A0c0E7Bcf167B8) |
+| Arbitrum | `0x3e2D5966bF67Ed2F66edfbc325f6bCf3d64EaA0A` | [View on Arbitrum Explorer](https://arbiscan.io/address/0x3e2D5966bF67Ed2F66edfbc325f6bCf3d64EaA0A) |
 
 ### Examples
 

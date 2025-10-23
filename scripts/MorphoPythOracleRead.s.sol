@@ -8,7 +8,6 @@ import {IERC4626} from "../src/interfaces/IERC4626.sol";
 
 contract MorphoPythOracleRead is Script {
     function run() public {
-
         // Use an RPC fork so external calls hit the real chain state
         string memory rpcUrl = vm.envString("RPC");
         vm.createSelectFork(rpcUrl);
